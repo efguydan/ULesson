@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/dashboardFragment">
+    app:startDestination="@id/liveFragment">
 
     <fragment
         android:id="@+id/dashboardFragment"
@@ -50,5 +50,23 @@
             android:name="lesson"
             app:argType="com.efedaniel.ulesson.ulessonapp.models.general.Lesson" />
     </fragment>
+    <fragment
+        android:id="@+id/liveFragment"
+        android:name="com.efedaniel.ulesson.ulessonapp.screens.live.LiveFragment"
+        android:label="fragment_live"
+        tools:layout="@layout/fragment_live" >
+        <action
+            android:id="@+id/action_liveFragment_to_meFragment"
+            app:destination="@id/meFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/meFragment"
+        android:name="com.efedaniel.ulesson.ulessonapp.screens.me.MeFragment"
+        android:label="fragment_me"
+        tools:layout="@layout/fragment_me" />
 
 </navigation>
