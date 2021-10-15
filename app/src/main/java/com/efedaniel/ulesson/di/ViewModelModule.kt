@@ -4,6 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.efedaniel.ulesson.ulessonapp.screens.dashboard.DashboardViewModel
 import com.efedaniel.ulesson.ulessonapp.screens.lesson.LessonViewModel
+import com.efedaniel.ulesson.ulessonapp.screens.live.LiveViewModel
+import com.efedaniel.ulesson.ulessonapp.screens.me.MeViewModel
 import com.efedaniel.ulesson.ulessonapp.screens.subject.SubjectViewModel
 import dagger.Binds
 import dagger.Module
@@ -30,4 +32,15 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(LessonViewModel::class)
     abstract fun bindLessonViewModel(viewModel: LessonViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(LiveViewModel::class)
+    abstract fun bindLiveViewModel(viewModel: LiveViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(MeViewModel::class)
+    abstract fun bindMeViewModel(viewModel: MeViewModel): ViewModel
+
 }

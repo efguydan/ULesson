@@ -7,6 +7,7 @@
     <color name="dots_inactive_color">#C4C4C4</color>
     <color name="dots_active_color">#313848</color>
     <color name="text_color">#313848</color>
+    <color name="text_grey">#8B8F99</color>
     <color name="placeholder">#CACACA</color>
     <color name="red">#DA0000</color>
     <color name="purple">#506AAC</color>

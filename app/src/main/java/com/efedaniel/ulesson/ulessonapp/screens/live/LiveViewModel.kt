@@ -1,7 +1,10 @@
 package com.efedaniel.ulesson.ulessonapp.screens.live
 
-import androidx.lifecycle.ViewModel
+import com.efedaniel.ulesson.base.BaseViewModel
+import javax.inject.Inject
 
-class LiveViewModel : ViewModel() {
+class LiveViewModel @Inject constructor(
+
+): BaseViewModel() {
     // TODO: Implement the ViewModel
 }

@@ -6,4 +6,9 @@
     <string name="retry">Retry</string>
     <string name="see_less">See less</string>
     <string name="live_lessons">Live Lessons</string>
+    <string name="empty_live_lessons_title">Oops! Try again later</string>
+    <string name="empty_live_lesson_description">There are no live lessons for this subject at the moment</string>
+    <string name="my_lessons">My Lessons</string>
+    <string name="empty_me_lessons_title">Your timetable is empty</string>
+    <string name="empty_me_lesson_description">Click remind me to add lessons to your timetable</string>
 </resources>

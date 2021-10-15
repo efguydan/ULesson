@@ -11,9 +11,6 @@ import androidx.navigation.fragment.navArgs
 import com.efedaniel.ulesson.R
 import com.efedaniel.ulesson.base.BaseFragment
 import com.efedaniel.ulesson.databinding.FragmentLessonBinding
-import com.efedaniel.ulesson.extensions.isLandScape
-import com.efedaniel.ulesson.extensions.makeFullScreen
-import com.efedaniel.ulesson.extensions.makeStatusBarTransparent
 import com.efedaniel.ulesson.extensions.observeNonNull
 import javax.inject.Inject
 
@@ -45,17 +42,9 @@ class LessonFragment : BaseFragment() {
     override fun onStart() {
         super.onStart()
         viewModel.videoPlayer.initializePlayer(requireContext(), args.lesson.videoLink)
-        with(mainActivity) {
-            if (isLandScape()) makeFullScreen()
-            else makeStatusBarTransparent()
-        }
     }
 
     override fun onStop() {
-        if (!mainActivity.isChangingConfigurations) {
-            viewModel.videoPlayer.releasePlayer()
-            mainActivity.makeStatusBarTransparent()
-        }
         super.onStop()
     }
 

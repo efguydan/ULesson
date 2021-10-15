@@ -1,7 +1,10 @@
 package com.efedaniel.ulesson.ulessonapp.screens.me
 
-import androidx.lifecycle.ViewModel
+import com.efedaniel.ulesson.base.BaseViewModel
+import javax.inject.Inject
 
-class MeViewModel : ViewModel() {
+class MeViewModel @Inject constructor(
+
+) : BaseViewModel() {
     // TODO: Implement the ViewModel
 }
