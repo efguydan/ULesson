@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ULesson</string>
+    <string name="hello_simbi">Hello Simbi</string>
+    <string name="recently_watched_videos">Recently Watched Videos</string>
+    <string name="view_all">View All</string>
+    <string name="retry">Retry</string>
+    <string name="see_less">See less</string>
+</resources>
