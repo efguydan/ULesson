@@ -5,7 +5,7 @@
         <item name="colorPrimaryDark">@color/white</item>
         <item name="colorAccent">@color/green</item>
         <item name="android:statusBarColor">@color/black_20</item>
-        <item name="android:fontFamily">@font/itim</item>
+        <item name="android:fontFamily">@font/muli</item>
         <item name="android:textColorPrimary">@color/text_color</item>
     </style>
 </resources>

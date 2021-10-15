@@ -4,6 +4,10 @@
     <color name="green">#68BC98</color>
     <color name="black_20">#33000000</color>
     <color name="grey">#E5E5E5</color>
+    <color name="dots_inactive_color">#C4C4C4</color>
+    <color name="dots_active_color">#313848</color>
     <color name="text_color">#313848</color>
     <color name="placeholder">#CACACA</color>
+    <color name="red">#DA0000</color>
+    <color name="purple">#506AAC</color>
 </resources>

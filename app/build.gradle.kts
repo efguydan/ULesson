@@ -89,6 +89,7 @@ dependencies {
 
     implementation(Config.Libs.Misc.timber)
     implementation(Config.Libs.Misc.coil)
+    implementation(Config.Libs.Misc.dotsIndicator)
 
     testImplementation(Config.Libs.Test.jUnit)
     testImplementation(Config.Libs.Test.mockitoKt)

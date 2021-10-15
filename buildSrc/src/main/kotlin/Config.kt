@@ -101,6 +101,7 @@ object Config {
         object Misc {
             const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
             const val coil = "io.coil-kt:coil:${Versions.coil}"
+            const val dotsIndicator = "com.tbuonomo:dotsindicator:4.2"
         }
 
         object Test {
