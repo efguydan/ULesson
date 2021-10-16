@@ -11,4 +11,5 @@
     <string name="my_lessons">My Lessons</string>
     <string name="empty_me_lessons_title">Your timetable is empty</string>
     <string name="empty_me_lesson_description">Click remind me to add lessons to your timetable</string>
+    <string name="add_live_lessons">Add live lessons</string>
 </resources>

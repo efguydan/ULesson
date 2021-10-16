@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -100,7 +101,7 @@
             app:constraint_referenced_ids="lessonRecyclerView,emptyView"/>
 
         <android.widget.Button
-            android:id="@+id/viewAllButton"
+            android:id="@+id/addLessonButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
@@ -108,8 +109,7 @@
             android:layout_marginEnd="18dp"
             android:layout_marginBottom="24dp"
             android:background="@drawable/ic_button_bg"
-            android:fontFamily="@font/muli"
-            android:text="@string/view_all"
+            android:text="@string/add_live_lessons"
             android:textColor="@android:color/white"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
