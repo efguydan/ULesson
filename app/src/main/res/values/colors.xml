@@ -11,4 +11,6 @@
     <color name="placeholder">#CACACA</color>
     <color name="red">#DA0000</color>
     <color name="purple">#506AAC</color>
+    <color name="yellow">#F2984D</color>
+    <color name="light_black">#606572</color>
 </resources>

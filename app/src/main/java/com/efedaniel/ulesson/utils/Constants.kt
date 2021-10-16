@@ -11,4 +11,10 @@ object Constants {
         const val DATABASE_NAME = "ulesson_database.db"
         const val LESSON_TABLE_NAME = "lessons_table"
     }
+
+    object Keys {
+        const val UPCOMING = "upcoming"
+        const val LIVE = "live"
+        const val REPLAY = "replay"
+    }
 }

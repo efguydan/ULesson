@@ -13,4 +13,8 @@ data class Lesson(
     val status: String,
     val topicName: String,
     val startTime: String
-) : Parcelable
+) : Parcelable {
+
+    fun getTutorFullName() = "$tutorFirstName $tutorLastName"
+
+}
