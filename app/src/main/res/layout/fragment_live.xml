@@ -6,7 +6,6 @@
     tools:context=".ulessonapp.screens.live.LiveFragment">
 
     <data>
-
         <variable
             name="viewModel"
             type="com.efedaniel.ulesson.ulessonapp.screens.live.LiveViewModel" />
@@ -63,14 +62,13 @@
                 <com.efedaniel.ulesson.common.customviews.AutoScrollViewPager
                     android:id="@+id/carousel"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="20dp"
+                    android:layout_height="176dp"
                     android:layout_marginTop="4dp"
-                    android:layout_marginEnd="20dp"
-                    android:background="@android:color/holo_orange_light"
+                    android:clipToPadding="false"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/toolbarLayout" />
+                    app:layout_constraintTop_toBottomOf="@id/toolbarLayout"
+                    tools:background="@android:color/holo_orange_light"/>
 
                 <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
                     android:id="@+id/dotsIndicator"
@@ -80,7 +78,7 @@
                     app:dotsColor="@color/dots_inactive_color"
                     app:dotsCornerRadius="5dp"
                     app:dotsSize="10dp"
-                    app:dotsSpacing="12dp"
+                    app:dotsSpacing="8dp"
                     app:dotsWidthFactor="1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

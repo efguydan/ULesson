@@ -11,7 +11,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.efedaniel.ulesson.base.BaseFragment
 import com.efedaniel.ulesson.databinding.FragmentLiveBinding
+import com.efedaniel.ulesson.extensions.observeNonNull
 import com.efedaniel.ulesson.ulessonapp.models.general.Lesson
+import com.efedaniel.ulesson.ulessonapp.screens.live.pager.PromotedPagerAdapter
 import javax.inject.Inject
 
 class LiveFragment : BaseFragment() {
@@ -42,6 +44,20 @@ class LiveFragment : BaseFragment() {
         }
 
         binding.lessonRecyclerView.adapter = LiveLessonsAdapter()
+
+        viewModel.promotedLessons.observeNonNull(viewLifecycleOwner, ::setupViewPager)
+    }
+
+    private fun setupViewPager(lessons: List<Lesson>) = binding.carousel.run {
+        adapter = PromotedPagerAdapter(childFragmentManager, lessons)
+        binding.dotsIndicator.setViewPager(this)
+        setCycle(true)
+        setAutoScrollDurationFactor(2.0)
+        isStopScrollWhenTouch = true
+        interval = 5000
+        startAutoScroll()
+        pageMargin = 20
+        setPadding(20, 0, 20, 0)
     }
 
 }

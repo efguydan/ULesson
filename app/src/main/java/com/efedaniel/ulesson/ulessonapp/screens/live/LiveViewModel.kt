@@ -39,7 +39,6 @@ class LiveViewModel @Inject constructor(
 
             if (promotedLessonsList is Result.Success && liveLessonsList is Result.Success) {
                 _promotedLessons.postValue(promotedLessonsList.data)
-
                 handleLiveLessonsData(liveLessonsList.data)
             } else {
                 // TODO SHow error
