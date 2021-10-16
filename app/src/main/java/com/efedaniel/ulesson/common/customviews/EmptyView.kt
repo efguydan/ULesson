@@ -8,7 +8,6 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.withStyledAttributes
 import com.efedaniel.ulesson.R
-import com.efedaniel.ulesson.extensions.hide
 
 class EmptyView @JvmOverloads constructor(
     context: Context,
@@ -25,5 +24,4 @@ class EmptyView @JvmOverloads constructor(
             findViewById<ImageView>(R.id.emptyViewImage).setImageDrawable(getDrawable(R.styleable.EmptyView_emptyImage))
         }
     }
-
 }

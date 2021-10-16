@@ -37,7 +37,7 @@ class MeViewModel @Inject constructor(
     private fun getMyLessonsFromNetwork() {
         _loadingStatus.value = LoadingStatus.Loading()
         viewModelScope.launch {
-            when(val result = repository.getMyLessons()) {
+            when (val result = repository.getMyLessons()) {
                 is Result.Success -> {
                     _subjectList.postValue(Constants.Data.SUBJECTS)
                     _loadingStatus.value = LoadingStatus.Success
@@ -52,5 +52,4 @@ class MeViewModel @Inject constructor(
     fun onSubjectSelected(position: Int) {
         _selectedSubject.value = Constants.Data.SUBJECTS[position]
     }
-
 }

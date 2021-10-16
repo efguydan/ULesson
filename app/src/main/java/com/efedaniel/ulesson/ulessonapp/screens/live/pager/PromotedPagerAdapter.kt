@@ -12,5 +12,4 @@ class PromotedPagerAdapter(
     override fun getCount() = lessons.size
 
     override fun getItem(position: Int) = PromotedFragment.newInstance(lessons[position])
-
 }

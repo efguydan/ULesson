@@ -1,6 +1,5 @@
 package com.efedaniel.ulesson.ulessonapp.data.repositories
 
-import android.provider.SyncStateContract
 import androidx.lifecycle.LiveData
 import com.efedaniel.ulesson.networkutils.GENERIC_ERROR_CODE
 import com.efedaniel.ulesson.networkutils.GENERIC_ERROR_MESSAGE
@@ -28,7 +27,7 @@ class ULessonRepository @Inject constructor(
                 }
                 is Result.Error -> Result.Error(result.errorCode, result.errorMessage)
             }
-        } catch(e: Exception) {
+        } catch (e: Exception) {
             e.printStackTrace()
             Result.Error(GENERIC_ERROR_CODE, GENERIC_ERROR_MESSAGE)
         }
@@ -52,7 +51,7 @@ class ULessonRepository @Inject constructor(
                 is Result.Success -> Result.Success(result.data.map { it.toLessonModel() })
                 is Result.Error -> Result.Error(result.errorCode, result.errorMessage)
             }
-        } catch(e: Exception) {
+        } catch (e: Exception) {
             e.printStackTrace()
             Result.Error(GENERIC_ERROR_CODE, GENERIC_ERROR_MESSAGE)
         }
@@ -67,5 +66,4 @@ class ULessonRepository @Inject constructor(
 
     private fun observeAllMyLessons(): LiveData<List<LocalLesson>> =
         localRepository.observeAllMyLessons()
-
 }

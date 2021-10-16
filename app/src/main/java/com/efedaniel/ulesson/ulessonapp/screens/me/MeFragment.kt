@@ -23,7 +23,8 @@ class MeFragment : BaseFragment() {
     private lateinit var binding: FragmentMeBinding
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentMeBinding.inflate(layoutInflater)
@@ -46,7 +47,7 @@ class MeFragment : BaseFragment() {
         val dataAdapter = ArrayAdapter(requireContext(), R.layout.layout_spinner_subjects, subjects)
         dataAdapter.setDropDownViewResource(R.layout.layout_spinner_subjects_dropdown)
         binding.subjectSpinner.adapter = dataAdapter
-        binding.subjectSpinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
+        binding.subjectSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
                 view: View?,
@@ -58,8 +59,6 @@ class MeFragment : BaseFragment() {
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
-
         }
     }
-
 }

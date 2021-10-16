@@ -19,5 +19,4 @@ class LocalRepository @Inject constructor(
 
     fun observeAllMyLessons() =
         lessonDao.observeAllMyLessons()
-
 }

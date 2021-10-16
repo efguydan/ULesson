@@ -15,5 +15,4 @@ interface ULessonService {
 
     @GET("/api/v1/lessons/me")
     suspend fun getMyLessons(): Response<BaseApiResponse<List<ApiLesson>>>
-
 }

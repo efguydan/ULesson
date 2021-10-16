@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 class LiveViewModel @Inject constructor(
     private val repository: ULessonRepository
-): BaseViewModel() {
+) : BaseViewModel() {
 
     private val _promotedLessons = MutableLiveData<List<Lesson>>()
     val promotedLessons: LiveData<List<Lesson>> = _promotedLessons
@@ -62,12 +62,11 @@ class LiveViewModel @Inject constructor(
 
     fun onSubjectSelected(position: Int) {
         _liveLessons.value = if (position == 0) {
-             allLiveLessons
+            allLiveLessons
         } else {
             allLiveLessons.filter {
                 it.subjectName.equals(Constants.Data.SUBJECTS[position], ignoreCase = true)
             }
         }
     }
-
 }

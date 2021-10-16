@@ -2,13 +2,10 @@ package com.efedaniel.ulesson.ulessonapp.data.db.daos
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
-import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.efedaniel.ulesson.ulessonapp.models.general.Lesson
 import com.efedaniel.ulesson.ulessonapp.models.local.LocalLesson
-import com.efedaniel.ulesson.utils.Constants.DatabaseKeys
 import com.efedaniel.ulesson.utils.Constants.DatabaseKeys.LESSON_TABLE_NAME
 
 @Dao
@@ -28,5 +25,4 @@ interface LessonDao {
 
     @Query("DELETE FROM $LESSON_TABLE_NAME")
     suspend fun clearTable()
-
 }

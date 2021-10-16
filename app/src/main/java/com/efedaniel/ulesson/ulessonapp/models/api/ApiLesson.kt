@@ -1,6 +1,5 @@
 package com.efedaniel.ulesson.ulessonapp.models.api
 
-import com.efedaniel.ulesson.extensions.EMPTY
 import com.efedaniel.ulesson.ulessonapp.models.general.Lesson
 import com.efedaniel.ulesson.ulessonapp.models.local.LocalLesson
 import com.google.gson.annotations.SerializedName

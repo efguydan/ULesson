@@ -16,5 +16,4 @@ data class Lesson(
 ) : Parcelable {
 
     fun getTutorFullName() = "$tutorFirstName $tutorLastName"
-
 }

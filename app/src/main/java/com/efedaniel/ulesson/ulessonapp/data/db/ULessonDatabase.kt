@@ -14,5 +14,4 @@ import com.efedaniel.ulesson.ulessonapp.models.local.LocalLesson
 abstract class ULessonDatabase : RoomDatabase() {
 
     abstract fun getLessonDao(): LessonDao
-
 }

@@ -1,6 +1,5 @@
 package com.efedaniel.ulesson.common.livedata
 
-
 import android.util.Log
 import androidx.annotation.MainThread
 import androidx.lifecycle.LifecycleOwner

@@ -35,5 +35,4 @@ class LocalDataModule {
 
     @Provides
     fun providesLessonDao(db: ULessonDatabase): LessonDao = db.getLessonDao()
-
 }

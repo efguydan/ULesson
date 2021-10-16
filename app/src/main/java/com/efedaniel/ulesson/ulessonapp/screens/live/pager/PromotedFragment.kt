@@ -1,11 +1,10 @@
 package com.efedaniel.ulesson.ulessonapp.screens.live.pager
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.efedaniel.ulesson.R
+import androidx.fragment.app.Fragment
 import com.efedaniel.ulesson.databinding.FragmentPromotedBinding
 import com.efedaniel.ulesson.ulessonapp.models.general.Lesson
 
@@ -26,7 +25,8 @@ class PromotedFragment : Fragment() {
     private lateinit var binding: FragmentPromotedBinding
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentPromotedBinding.inflate(layoutInflater)
@@ -40,5 +40,4 @@ class PromotedFragment : Fragment() {
             binding.executePendingBindings()
         }
     }
-
 }

@@ -9,5 +9,4 @@ class BaseApiResponse<T> {
 
     @SerializedName("data")
     var data: T? = null
-
 }

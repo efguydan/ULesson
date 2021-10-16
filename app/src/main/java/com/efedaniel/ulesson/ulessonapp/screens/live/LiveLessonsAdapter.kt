@@ -10,9 +10,7 @@ import com.efedaniel.ulesson.databinding.ItemLiveLessonBinding
 import com.efedaniel.ulesson.extensions.inflate
 import com.efedaniel.ulesson.ulessonapp.models.general.Lesson
 
-class LiveLessonsAdapter(
-
-): ListAdapter<Lesson, LiveLessonsAdapter.ViewHolder>(LessonDiffCallback) {
+class LiveLessonsAdapter() : ListAdapter<Lesson, LiveLessonsAdapter.ViewHolder>(LessonDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(ItemLiveLessonBinding.bind(parent.inflate(R.layout.item_live_lesson)))
@@ -31,7 +29,6 @@ class LiveLessonsAdapter(
             executePendingBindings()
         }
     }
-
 }
 
 object LessonDiffCallback : DiffUtil.ItemCallback<Lesson>() {
