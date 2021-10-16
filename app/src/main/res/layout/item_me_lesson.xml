@@ -1,88 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/bg_round_corner_sixteen"
-    android:layout_marginStart="20dp"
-    android:layout_marginEnd="20dp"
-    android:layout_marginBottom="12dp"
-    >
+<layout>
 
-    <ImageView
-        android:id="@+id/subjectImageView"
+    <data>
+        <variable
+            name="lesson"
+            type="com.efedaniel.ulesson.ulessonapp.models.general.Lesson" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="132dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@android:color/holo_orange_light"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAllCaps="true"
-        android:textSize="12sp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/white"
-        android:background="@drawable/bg_round_corner_six"
-        android:backgroundTint="@color/red"
-        android:paddingEnd="6dp"
-        android:drawablePadding="6dp"
-        android:paddingStart="6dp"
-        android:paddingTop="4dp"
-        android:paddingBottom="4dp"
-        android:fontFamily="@font/muli_bold"
-        android:drawableStart="@drawable/ic_bytesize_bell"
-        app:layout_constraintTop_toTopOf="@id/subjectImageView"
-        app:layout_constraintEnd_toEndOf="@id/subjectImageView"
-        tools:text="Live"/>
-
-    <TextView
-        android:id="@+id/subjectNameTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         android:layout_marginStart="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/subjectImageView"
-        tools:text="Physics" />
-
-    <TextView
-        android:id="@+id/timeTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:drawableStart="@drawable/ic_clock"
-        android:drawablePadding="5dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginStart="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/subjectNameTextView"
-        tools:text="Started at 1:30 PM"
-        />
-
-    <TextView
-        android:id="@+id/topicNameTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/muli_semibold"
-        android:textColor="@color/text_color"
-        android:textSize="15sp"
-        android:layout_marginTop="6dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="12dp"
-        android:layout_marginStart="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/timeTextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:text="Materials - Metals &amp; Non Metals"
-        />
+        android:background="@drawable/bg_round_corner_sixteen">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/subjectImageView"
+            android:layout_width="match_parent"
+            android:layout_height="132dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            coilImage="@{lesson.imageLink}"
+            tools:src="@android:color/holo_orange_light" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/ic_logo_ulesson"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/bg_round_corner_six"
+            android:backgroundTint="@color/red"
+            android:drawableStart="@drawable/ic_bytesize_bell"
+            android:drawablePadding="6dp"
+            android:fontFamily="@font/muli_bold"
+            android:paddingStart="6dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="6dp"
+            android:paddingBottom="4dp"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            lessonStatus="@{lesson.status}"
+            app:layout_constraintEnd_toEndOf="@id/subjectImageView"
+            app:layout_constraintTop_toTopOf="@id/subjectImageView"
+            tools:text="Live" />
+
+        <TextView
+            android:id="@+id/subjectNameTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp"
+            android:text="@{lesson.subjectName}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/subjectImageView"
+            tools:text="Physics" />
+
+        <TextView
+            android:id="@+id/timeTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="6dp"
+            android:drawableStart="@drawable/ic_clock"
+            android:drawablePadding="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/subjectNameTextView"
+            startTime="@{lesson.startTime}"
+            tools:text="Started at 1:30 PM" />
+
+        <TextView
+            android:id="@+id/topicNameTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="12dp"
+            android:fontFamily="@font/muli_semibold"
+            android:textColor="@color/text_color"
+            android:textSize="15sp"
+            android:text="@{lesson.topicName}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/timeTextView"
+            tools:text="Materials - Metals &amp; Non Metals And what if i go to the next line??" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

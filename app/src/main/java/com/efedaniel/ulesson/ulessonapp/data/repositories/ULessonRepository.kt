@@ -1,5 +1,7 @@
 package com.efedaniel.ulesson.ulessonapp.data.repositories
 
+import android.provider.SyncStateContract
+import androidx.lifecycle.LiveData
 import com.efedaniel.ulesson.networkutils.GENERIC_ERROR_CODE
 import com.efedaniel.ulesson.networkutils.GENERIC_ERROR_MESSAGE
 import com.efedaniel.ulesson.networkutils.Result
@@ -8,6 +10,8 @@ import com.efedaniel.ulesson.ulessonapp.data.apis.ULessonService
 import com.efedaniel.ulesson.ulessonapp.models.api.toLessonModel
 import com.efedaniel.ulesson.ulessonapp.models.api.toLocalLessonModel
 import com.efedaniel.ulesson.ulessonapp.models.general.Lesson
+import com.efedaniel.ulesson.ulessonapp.models.local.LocalLesson
+import com.efedaniel.ulesson.utils.Constants
 import javax.inject.Inject
 
 class ULessonRepository @Inject constructor(
@@ -53,5 +57,15 @@ class ULessonRepository @Inject constructor(
             Result.Error(GENERIC_ERROR_CODE, GENERIC_ERROR_MESSAGE)
         }
     }
+
+    fun observeMySubjectsFromCache(subjectName: String) =
+        if (subjectName == Constants.Data.SUBJECTS[0]) {
+            observeAllMyLessons()
+        } else {
+            localRepository.observeLessonsBySubject(subjectName)
+        }
+
+    private fun observeAllMyLessons(): LiveData<List<LocalLesson>> =
+        localRepository.observeAllMyLessons()
 
 }

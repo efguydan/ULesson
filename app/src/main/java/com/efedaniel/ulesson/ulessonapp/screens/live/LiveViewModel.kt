@@ -42,10 +42,11 @@ class LiveViewModel @Inject constructor(
             val liveLessonsList = liveLessonsTask.await()
 
             if (promotedLessonsList is Result.Success && liveLessonsList is Result.Success) {
+                _loadingStatus.value = LoadingStatus.Success
                 _promotedLessons.postValue(promotedLessonsList.data)
                 handleLiveLessonsData(liveLessonsList.data)
             } else {
-                // TODO SHow error
+                // TODO Show error
             }
         }
     }

@@ -45,6 +45,6 @@ object LessonDiffCallback : DiffUtil.ItemCallback<Lesson>() {
 }
 
 @BindingAdapter("liveLessonList")
-fun bindRecentlyWatchedRecyclerView(recyclerView: RecyclerView, data: List<Lesson>?) {
+fun bindLiveLessonRecyclerView(recyclerView: RecyclerView, data: List<Lesson>?) {
     data?.let { (recyclerView.adapter as LiveLessonsAdapter).submitList(data) }
 }

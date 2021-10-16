@@ -20,8 +20,11 @@ interface LessonDao {
     @Query("SELECT * FROM $LESSON_TABLE_NAME WHERE id = :id")
     suspend fun getLesson(id: String): LocalLesson?
 
+    @Query("SELECT * FROM $LESSON_TABLE_NAME WHERE subjectName = :subjectName")
+    fun observeLessonsBySubject(subjectName: String): LiveData<List<LocalLesson>>
+
     @Query("SELECT * FROM $LESSON_TABLE_NAME")
-    fun observeAllLessons(): LiveData<List<LocalLesson>>
+    fun observeAllMyLessons(): LiveData<List<LocalLesson>>
 
     @Query("DELETE FROM $LESSON_TABLE_NAME")
     suspend fun clearTable()

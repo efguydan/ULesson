@@ -3,6 +3,7 @@ package com.efedaniel.ulesson.ulessonapp.models.local
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.efedaniel.ulesson.ulessonapp.models.general.Lesson
 import com.efedaniel.ulesson.utils.Constants
 
 @Entity(tableName = Constants.DatabaseKeys.LESSON_TABLE_NAME)
@@ -23,4 +24,15 @@ data class LocalLesson(
     val topicName: String,
     @ColumnInfo(name = "start_time")
     val startTime: String
+)
+
+fun LocalLesson.toLessonModel(): Lesson = Lesson(
+    id = id,
+    tutorFirstName = tutorFirstName,
+    tutorLastName = tutorLastName,
+    subjectName = subjectName,
+    imageLink = imageLink,
+    status = status,
+    topicName = topicName,
+    startTime = startTime
 )
