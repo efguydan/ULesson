@@ -1,28 +1,45 @@
 package com.efedaniel.ulesson.ulessonapp.models.api
 
+import com.efedaniel.ulesson.extensions.EMPTY
+import com.efedaniel.ulesson.ulessonapp.models.general.Lesson
 import com.efedaniel.ulesson.ulessonapp.models.local.LocalLesson
 import com.google.gson.annotations.SerializedName
 
 data class ApiLesson(
     @SerializedName("id")
-    val id: Int,
-    @SerializedName("name")
-    val name: String,
-    @SerializedName("icon")
-    val icon: String,
-    @SerializedName("media_url")
-    val videoLink: String,
-    @SerializedName("subject_id")
-    val subjectID: Int,
-    @SerializedName("chapter_id")
-    val chapterID: Int
+    val id: String,
+    @SerializedName("tutor")
+    val tutor: ApiTutor = ApiTutor(),
+    @SerializedName("subject")
+    val subject: ApiSubject,
+    @SerializedName("image_url")
+    val imageLink: String,
+    @SerializedName("status")
+    val status: String,
+    @SerializedName("topic")
+    val topicName: String,
+    @SerializedName("start_at")
+    val startTime: String
 )
 
-fun ApiLesson.toLocalLesson() = LocalLesson(
+fun ApiLesson.toLessonModel(): Lesson = Lesson(
     id = id,
-    name = name,
-    icon = icon,
-    videoLink = videoLink,
-    subjectID = subjectID,
-    chapterID = chapterID
+    tutorFirstName = tutor.firstName.orEmpty(),
+    tutorLastName = tutor.lastName.orEmpty(),
+    subjectName = subject.name,
+    imageLink = imageLink,
+    status = status,
+    topicName = topicName,
+    startTime = startTime
+)
+
+fun ApiLesson.toLocalLessonModel(): LocalLesson = LocalLesson(
+    id = id,
+    tutorFirstName = tutor.firstName.orEmpty(),
+    tutorLastName = tutor.lastName.orEmpty(),
+    subjectName = subject.name,
+    imageLink = imageLink,
+    status = status,
+    topicName = topicName,
+    startTime = startTime
 )

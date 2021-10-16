@@ -1,18 +1,14 @@
 package com.efedaniel.ulesson.ulessonapp.screens.live
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
-import com.efedaniel.ulesson.R
 import com.efedaniel.ulesson.base.BaseFragment
-import com.efedaniel.ulesson.databinding.FragmentDashboardBinding
 import com.efedaniel.ulesson.databinding.FragmentLiveBinding
-import com.efedaniel.ulesson.ulessonapp.screens.dashboard.DashboardViewModel
 import javax.inject.Inject
 
 class LiveFragment : BaseFragment() {
