@@ -8,6 +8,7 @@ import com.efedaniel.ulesson.networkutils.LoadingStatus
 import com.efedaniel.ulesson.networkutils.Result
 import com.efedaniel.ulesson.ulessonapp.data.repositories.ULessonRepository
 import com.efedaniel.ulesson.ulessonapp.models.general.Lesson
+import com.efedaniel.ulesson.utils.Constants
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -20,8 +21,11 @@ class LiveViewModel @Inject constructor(
     val promotedLessons: LiveData<List<Lesson>> = _promotedLessons
 
     private var allLiveLessons: MutableList<Lesson> = mutableListOf()
-    private val _liveLessons = MutableLiveData<List<Lesson>>()
+    private val _liveLessons = MutableLiveData<List<Lesson>>(emptyList())
     val liveLessons: LiveData<List<Lesson>> = _liveLessons
+
+    private val _subjectList = MutableLiveData<List<String>>()
+    val subjectList: LiveData<List<String>> = _subjectList
 
     init {
         getLiveAndPromotedLessons()
@@ -51,6 +55,18 @@ class LiveViewModel @Inject constructor(
         allLiveLessons.addAll(lessons)
 
         _liveLessons.postValue(lessons)
+
+        _subjectList.postValue(Constants.Data.SUBJECTS)
+    }
+
+    fun onSubjectSelected(position: Int) {
+        _liveLessons.value = if (position == 0) {
+             allLiveLessons
+        } else {
+            allLiveLessons.filter {
+                it.subjectName.equals(Constants.Data.SUBJECTS[position], ignoreCase = true)
+            }
+        }
     }
 
 }

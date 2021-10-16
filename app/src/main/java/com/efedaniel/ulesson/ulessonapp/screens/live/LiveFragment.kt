@@ -4,17 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.BindingAdapter
+import android.widget.AdapterView
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.RecyclerView
 import com.efedaniel.ulesson.base.BaseFragment
 import com.efedaniel.ulesson.databinding.FragmentLiveBinding
 import com.efedaniel.ulesson.extensions.observeNonNull
 import com.efedaniel.ulesson.ulessonapp.models.general.Lesson
 import com.efedaniel.ulesson.ulessonapp.screens.live.pager.PromotedPagerAdapter
 import javax.inject.Inject
+import android.widget.ArrayAdapter
+import com.efedaniel.ulesson.R
 
 class LiveFragment : BaseFragment() {
 
@@ -46,6 +47,27 @@ class LiveFragment : BaseFragment() {
         binding.lessonRecyclerView.adapter = LiveLessonsAdapter()
 
         viewModel.promotedLessons.observeNonNull(viewLifecycleOwner, ::setupViewPager)
+        viewModel.subjectList.observeNonNull(viewLifecycleOwner, ::setupSpinner)
+    }
+
+    private fun setupSpinner(subjects: List<String>) {
+        val dataAdapter = ArrayAdapter(requireContext(), R.layout.layout_spinner_subjects, subjects)
+        dataAdapter.setDropDownViewResource(R.layout.layout_spinner_subjects_dropdown)
+        binding.subjectSpinner.adapter = dataAdapter
+        binding.subjectSpinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                viewModel.onSubjectSelected(position)
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+
+        }
     }
 
     private fun setupViewPager(lessons: List<Lesson>) = binding.carousel.run {

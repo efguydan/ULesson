@@ -17,4 +17,15 @@ object Constants {
         const val LIVE = "live"
         const val REPLAY = "replay"
     }
+
+    object Data {
+        val SUBJECTS = listOf(
+            "All Subjects",
+            "Mathematics",
+            "English",
+            "Chemistry",
+            "Biology",
+            "Physics"
+        )
+    }
 }
