@@ -11,6 +11,8 @@
     android:paddingBottom="6dp"
     android:gravity="center_vertical"
     android:maxLines="1"
+    android:textAllCaps="true"
+    android:letterSpacing="0.1"
     android:textColor="@color/white"
     android:background="@color/text_color"
     android:fontFamily="@font/muli_semibold"

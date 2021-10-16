@@ -11,6 +11,8 @@
     android:paddingBottom="6dp"
     android:gravity="center_vertical"
     android:maxLines="1"
+    android:textAllCaps="true"
+    android:letterSpacing="0.1"
     android:textColor="@color/white"
     android:background="@drawable/bg_round_corner_six"
     android:backgroundTint="@color/text_color"
