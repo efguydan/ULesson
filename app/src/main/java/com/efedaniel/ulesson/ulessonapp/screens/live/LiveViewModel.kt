@@ -46,9 +46,10 @@ class LiveViewModel @Inject constructor(
                 _loadingStatus.setValue(LoadingStatus.Success)
                 _promotedLessons.postValue(promotedLessonsList.data)
                 handleLiveLessonsData(liveLessonsList.data)
-            } else {
-                // TODO Set error code and error message
-                _loadingStatus.setValue(LoadingStatus.Error(""))
+            } else if (promotedLessonsList is Result.Error) {
+                _loadingStatus.setValue(LoadingStatus.Error(promotedLessonsList.errorMessage))
+            } else if (liveLessonsList is Result.Error) {
+                _loadingStatus.setValue(LoadingStatus.Error(liveLessonsList.errorMessage))
             }
         }
     }

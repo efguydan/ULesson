@@ -17,6 +17,7 @@ import com.efedaniel.ulesson.extensions.onScrollChanged
 import com.efedaniel.ulesson.extensions.onSelectedIndexChanged
 import com.efedaniel.ulesson.extensions.show
 import com.efedaniel.ulesson.networkutils.LoadingStatus
+import com.google.android.material.snackbar.Snackbar
 import javax.inject.Inject
 
 class MeFragment : BaseFragment() {
@@ -48,6 +49,7 @@ class MeFragment : BaseFragment() {
         viewModel.loadingStatus.observeNonNull(viewLifecycleOwner, ::onLoadingStatusUpdated)
 
         binding.scrollView.onScrollChanged { binding.toolbarLayout.invalidateElevation(it) }
+        binding.backButton.setOnClickListener { mainActivity.onBackPressed() }
     }
 
     private fun setupSpinner(subjects: List<String>) {
@@ -60,7 +62,19 @@ class MeFragment : BaseFragment() {
     private fun onLoadingStatusUpdated(loadingStatus: LoadingStatus) {
         when(loadingStatus) {
             is LoadingStatus.Loading -> binding.loadingContainer.rootView.show()
-            else -> binding.loadingContainer.rootView.hide()
+            is LoadingStatus.Success -> binding.loadingContainer.rootView.hide()
+            is LoadingStatus.Error -> {
+                binding.loadingContainer.rootView.hide()
+                showSnackBar(loadingStatus.errorMessage)
+            }
         }
+    }
+
+    private fun showSnackBar(
+        message: String
+    ) {
+        Snackbar
+            .make(binding.frameLayout, message, Snackbar.LENGTH_LONG)
+            .show()
     }
 }

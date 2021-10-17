@@ -59,6 +59,7 @@ class LiveFragment : BaseFragment() {
         viewModel.loadingStatus.observeNonNull(viewLifecycleOwner, ::onLoadingStatusUpdated)
 
         binding.scrollView.onScrollChanged { binding.toolbarLayout.invalidateElevation(it) }
+        binding.backButton.setOnClickListener { mainActivity.onBackPressed() }
     }
 
     private fun setupSpinner(subjects: List<String>) {
@@ -78,7 +79,11 @@ class LiveFragment : BaseFragment() {
     private fun onLoadingStatusUpdated(loadingStatus: LoadingStatus) {
         when(loadingStatus) {
             is LoadingStatus.Loading -> binding.loadingContainer.rootView.show()
-            else -> binding.loadingContainer.rootView.hide()
+            is LoadingStatus.Success -> binding.loadingContainer.rootView.hide()
+            is LoadingStatus.Error -> {
+                binding.loadingContainer.rootView.hide()
+                showSnackBar(loadingStatus.errorMessage)
+            }
         }
     }
 
