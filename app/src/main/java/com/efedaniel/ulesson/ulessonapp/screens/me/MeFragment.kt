@@ -4,16 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import com.efedaniel.ulesson.R
 import com.efedaniel.ulesson.base.BaseFragment
 import com.efedaniel.ulesson.databinding.FragmentMeBinding
 import com.efedaniel.ulesson.extensions.invalidateElevation
 import com.efedaniel.ulesson.extensions.observeNonNull
 import com.efedaniel.ulesson.extensions.onScrollChanged
+import com.efedaniel.ulesson.extensions.onSelectedIndexChanged
 import javax.inject.Inject
 
 class MeFragment : BaseFragment() {
@@ -21,7 +21,7 @@ class MeFragment : BaseFragment() {
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    private lateinit var viewModel: MeViewModel
+    private val viewModel: MeViewModel by viewModels { viewModelFactory }
     private lateinit var binding: FragmentMeBinding
 
     override fun onCreateView(
@@ -37,7 +37,6 @@ class MeFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         daggerAppComponent.inject(this)
-        viewModel = ViewModelProviders.of(this, viewModelFactory).get(MeViewModel::class.java)
         binding.viewModel = viewModel
 
         binding.lessonRecyclerView.adapter = MyLessonsAdapter()
@@ -51,18 +50,6 @@ class MeFragment : BaseFragment() {
         val dataAdapter = ArrayAdapter(requireContext(), R.layout.layout_spinner_subjects, subjects)
         dataAdapter.setDropDownViewResource(R.layout.layout_spinner_subjects_dropdown)
         binding.subjectSpinner.adapter = dataAdapter
-        binding.subjectSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                viewModel.onSubjectSelected(position)
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-            }
-        }
+        binding.subjectSpinner.onSelectedIndexChanged(viewModel::onSubjectSelected)
     }
 }

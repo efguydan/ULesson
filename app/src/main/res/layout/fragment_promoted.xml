@@ -57,6 +57,7 @@
             android:drawableTint="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            startTime="@{lesson.startTime}"
             tools:text="Today, 3:30 PM"
             />
 

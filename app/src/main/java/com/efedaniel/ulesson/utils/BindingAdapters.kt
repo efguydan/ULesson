@@ -49,7 +49,7 @@ fun TextView.setLessonStatus(status: String?) {
 @BindingAdapter("startTime")
 fun TextView.setStartTime(time: String?) {
     time?.let {
-        text = time
+        text = DateUtils.getRelativeDate(time)
     }
 }
 
