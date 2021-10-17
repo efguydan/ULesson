@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -77,7 +76,7 @@ class LiveFragment : BaseFragment() {
     }
 
     private fun onLoadingStatusUpdated(loadingStatus: LoadingStatus) {
-        when(loadingStatus) {
+        when (loadingStatus) {
             is LoadingStatus.Loading -> binding.loadingContainer.rootView.show()
             is LoadingStatus.Success -> binding.loadingContainer.rootView.hide()
             is LoadingStatus.Error -> {
@@ -94,5 +93,4 @@ class LiveFragment : BaseFragment() {
             .make(binding.coordinatorLayout, message, Snackbar.LENGTH_LONG)
             .show()
     }
-
 }

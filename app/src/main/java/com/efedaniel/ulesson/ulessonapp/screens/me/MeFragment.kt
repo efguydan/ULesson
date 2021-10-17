@@ -60,7 +60,7 @@ class MeFragment : BaseFragment() {
     }
 
     private fun onLoadingStatusUpdated(loadingStatus: LoadingStatus) {
-        when(loadingStatus) {
+        when (loadingStatus) {
             is LoadingStatus.Loading -> binding.loadingContainer.rootView.show()
             is LoadingStatus.Success -> binding.loadingContainer.rootView.hide()
             is LoadingStatus.Error -> {
