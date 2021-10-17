@@ -39,11 +39,10 @@ class MeViewModel @Inject constructor(
         viewModelScope.launch {
             when (val result = repository.getMyLessons()) {
                 is Result.Success -> {
-                    _subjectList.postValue(Constants.Data.SUBJECTS)
                     _loadingStatus.setValue(LoadingStatus.Success)
                 }
                 is Result.Error -> {
-                    // TODO Show error
+                    _loadingStatus.setValue(LoadingStatus.Error(result.errorMessage))
                 }
             }
         }

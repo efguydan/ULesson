@@ -11,7 +11,8 @@
             type="com.efedaniel.ulesson.ulessonapp.screens.live.LiveViewModel" />
     </data>
 
-    <FrameLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/grey">
@@ -105,6 +106,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_marginStart="20dp"
+                    android:layout_marginBottom="24dp"
                     android:layout_marginEnd="20dp"
                     android:focusable="false"
                     android:nestedScrollingEnabled="false"
@@ -112,6 +114,7 @@
                     android:overScrollMode="never"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintTop_toBottomOf="@id/subjectSpinner"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintVertical_bias="0.0"
                     tools:itemCount="3"
                     tools:layout_editor_absoluteX="20dp"
@@ -156,6 +159,6 @@
             app:backgroundTint="@color/purple"
             app:tint="@color/white" />
 
-    </FrameLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </layout>

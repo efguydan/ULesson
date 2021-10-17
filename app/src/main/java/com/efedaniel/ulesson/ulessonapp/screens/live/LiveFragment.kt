@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -21,6 +22,7 @@ import com.efedaniel.ulesson.extensions.show
 import com.efedaniel.ulesson.networkutils.LoadingStatus
 import com.efedaniel.ulesson.ulessonapp.models.general.Lesson
 import com.efedaniel.ulesson.ulessonapp.screens.live.pager.PromotedPagerAdapter
+import com.google.android.material.snackbar.Snackbar
 import javax.inject.Inject
 
 class LiveFragment : BaseFragment() {
@@ -50,7 +52,7 @@ class LiveFragment : BaseFragment() {
             findNavController().navigate(LiveFragmentDirections.actionLiveFragmentToMeFragment())
         }
 
-        binding.lessonRecyclerView.adapter = LiveLessonsAdapter()
+        binding.lessonRecyclerView.adapter = LiveLessonsAdapter(::showSnackBar)
 
         viewModel.promotedLessons.observeNonNull(viewLifecycleOwner, ::setupViewPager)
         viewModel.subjectList.observeNonNull(viewLifecycleOwner, ::setupSpinner)
@@ -78,6 +80,17 @@ class LiveFragment : BaseFragment() {
             is LoadingStatus.Loading -> binding.loadingContainer.rootView.show()
             else -> binding.loadingContainer.rootView.hide()
         }
+    }
+
+    fun showSnackBar(
+        message: String
+    ) {
+        Snackbar
+            .make(binding.coordinatorLayout, message, Snackbar.LENGTH_LONG)
+            .apply {
+                view.setBackgroundColor(ContextCompat.getColor(context, R.color.text_color))
+            }
+            .show()
     }
 
 }

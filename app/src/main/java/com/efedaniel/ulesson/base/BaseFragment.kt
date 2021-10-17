@@ -14,4 +14,5 @@ abstract class BaseFragment : Fragment() {
 
     protected val daggerAppComponent: AppComponent
         get() = (mainActivity.applicationContext as App).component
+
 }
