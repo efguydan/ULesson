@@ -10,10 +10,13 @@ import androidx.lifecycle.ViewModelProvider
 import com.efedaniel.ulesson.R
 import com.efedaniel.ulesson.base.BaseFragment
 import com.efedaniel.ulesson.databinding.FragmentMeBinding
+import com.efedaniel.ulesson.extensions.hide
 import com.efedaniel.ulesson.extensions.invalidateElevation
 import com.efedaniel.ulesson.extensions.observeNonNull
 import com.efedaniel.ulesson.extensions.onScrollChanged
 import com.efedaniel.ulesson.extensions.onSelectedIndexChanged
+import com.efedaniel.ulesson.extensions.show
+import com.efedaniel.ulesson.networkutils.LoadingStatus
 import javax.inject.Inject
 
 class MeFragment : BaseFragment() {
@@ -42,6 +45,7 @@ class MeFragment : BaseFragment() {
         binding.lessonRecyclerView.adapter = MyLessonsAdapter()
 
         viewModel.subjectList.observeNonNull(viewLifecycleOwner, ::setupSpinner)
+        viewModel.loadingStatus.observeNonNull(viewLifecycleOwner, ::onLoadingStatusUpdated)
 
         binding.scrollView.onScrollChanged { binding.toolbarLayout.invalidateElevation(it) }
     }
@@ -51,5 +55,12 @@ class MeFragment : BaseFragment() {
         dataAdapter.setDropDownViewResource(R.layout.layout_spinner_subjects_dropdown)
         binding.subjectSpinner.adapter = dataAdapter
         binding.subjectSpinner.onSelectedIndexChanged(viewModel::onSubjectSelected)
+    }
+
+    private fun onLoadingStatusUpdated(loadingStatus: LoadingStatus) {
+        when(loadingStatus) {
+            is LoadingStatus.Loading -> binding.loadingContainer.rootView.show()
+            else -> binding.loadingContainer.rootView.hide()
+        }
     }
 }

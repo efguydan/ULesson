@@ -13,4 +13,4 @@ sealed class Result<out T : Any> {
     }
 }
 
-fun Result.Error.toLoadingStatus(): LoadingStatus.Error = LoadingStatus.Error(errorCode, errorMessage)
+fun Result.Error.toLoadingStatus(): LoadingStatus.Error = LoadingStatus.Error(errorMessage)

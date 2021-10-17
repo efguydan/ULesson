@@ -10,7 +10,6 @@ class LocalRepository @Inject constructor(
 ) {
 
     suspend fun cacheMyLessons(lessons: List<LocalLesson>) {
-        lessonDao.clearTable()
         lessonDao.insert(lessons)
     }
 

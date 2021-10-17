@@ -11,11 +11,14 @@ import androidx.navigation.fragment.findNavController
 import com.efedaniel.ulesson.R
 import com.efedaniel.ulesson.base.BaseFragment
 import com.efedaniel.ulesson.databinding.FragmentLiveBinding
+import com.efedaniel.ulesson.extensions.hide
 import com.efedaniel.ulesson.extensions.invalidateElevation
 import com.efedaniel.ulesson.extensions.observeNonNull
 import com.efedaniel.ulesson.extensions.onScrollChanged
 import com.efedaniel.ulesson.extensions.onSelectedIndexChanged
 import com.efedaniel.ulesson.extensions.setupDefaultState
+import com.efedaniel.ulesson.extensions.show
+import com.efedaniel.ulesson.networkutils.LoadingStatus
 import com.efedaniel.ulesson.ulessonapp.models.general.Lesson
 import com.efedaniel.ulesson.ulessonapp.screens.live.pager.PromotedPagerAdapter
 import javax.inject.Inject
@@ -51,6 +54,7 @@ class LiveFragment : BaseFragment() {
 
         viewModel.promotedLessons.observeNonNull(viewLifecycleOwner, ::setupViewPager)
         viewModel.subjectList.observeNonNull(viewLifecycleOwner, ::setupSpinner)
+        viewModel.loadingStatus.observeNonNull(viewLifecycleOwner, ::onLoadingStatusUpdated)
 
         binding.scrollView.onScrollChanged { binding.toolbarLayout.invalidateElevation(it) }
     }
@@ -68,4 +72,12 @@ class LiveFragment : BaseFragment() {
         setupDefaultState()
         startAutoScroll()
     }
+
+    private fun onLoadingStatusUpdated(loadingStatus: LoadingStatus) {
+        when(loadingStatus) {
+            is LoadingStatus.Loading -> binding.loadingContainer.rootView.show()
+            else -> binding.loadingContainer.rootView.hide()
+        }
+    }
+
 }

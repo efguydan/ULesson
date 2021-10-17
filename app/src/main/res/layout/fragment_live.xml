@@ -137,6 +137,14 @@
 
         </androidx.core.widget.NestedScrollView>
 
+        <include
+            android:id="@+id/loadingContainer"
+            layout="@layout/layout_loading"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_marginTop="74dp"
+            android:visibility="gone" />
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
             android:layout_width="wrap_content"

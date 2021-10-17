@@ -32,7 +32,8 @@ class LiveViewModel @Inject constructor(
     }
 
     private fun getLiveAndPromotedLessons() {
-        _loadingStatus.value = LoadingStatus.Loading()
+        _loadingStatus.setValue(LoadingStatus.Loading())
+
         viewModelScope.launch {
             // Make the API calls simultaneously
             val promotedLessonsTask = async { repository.getPromotedLessons() }
@@ -42,11 +43,12 @@ class LiveViewModel @Inject constructor(
             val liveLessonsList = liveLessonsTask.await()
 
             if (promotedLessonsList is Result.Success && liveLessonsList is Result.Success) {
-                _loadingStatus.value = LoadingStatus.Success
+                _loadingStatus.setValue(LoadingStatus.Success)
                 _promotedLessons.postValue(promotedLessonsList.data)
                 handleLiveLessonsData(liveLessonsList.data)
             } else {
-                // TODO Show error
+                // TODO Set error code and error message
+                _loadingStatus.setValue(LoadingStatus.Error(""))
             }
         }
     }

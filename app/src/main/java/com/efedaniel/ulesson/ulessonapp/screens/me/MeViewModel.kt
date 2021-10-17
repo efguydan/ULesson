@@ -35,12 +35,12 @@ class MeViewModel @Inject constructor(
     }
 
     private fun getMyLessonsFromNetwork() {
-        _loadingStatus.value = LoadingStatus.Loading()
+        _loadingStatus.setValue(LoadingStatus.Loading())
         viewModelScope.launch {
             when (val result = repository.getMyLessons()) {
                 is Result.Success -> {
                     _subjectList.postValue(Constants.Data.SUBJECTS)
-                    _loadingStatus.value = LoadingStatus.Success
+                    _loadingStatus.setValue(LoadingStatus.Success)
                 }
                 is Result.Error -> {
                     // TODO Show error
