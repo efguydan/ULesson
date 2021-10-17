@@ -11,6 +11,7 @@ import com.efedaniel.ulesson.ulessonapp.models.api.toLocalLessonModel
 import com.efedaniel.ulesson.ulessonapp.models.general.Lesson
 import com.efedaniel.ulesson.ulessonapp.models.local.LocalLesson
 import com.efedaniel.ulesson.utils.Constants
+import java.io.IOException
 import javax.inject.Inject
 
 class ULessonRepository @Inject constructor(
@@ -29,7 +30,12 @@ class ULessonRepository @Inject constructor(
             }
         } catch (e: Exception) {
             e.printStackTrace()
-            Result.Error(GENERIC_ERROR_CODE, GENERIC_ERROR_MESSAGE)
+            if (e is IOException) {
+                //  Network Error
+                Result.Error(GENERIC_ERROR_CODE, "No Internet Connection. Displaying Cached Lessons")
+            } else {
+                Result.Error(GENERIC_ERROR_CODE, GENERIC_ERROR_MESSAGE)
+            }
         }
     }
 
