@@ -11,7 +11,9 @@ import androidx.lifecycle.ViewModelProviders
 import com.efedaniel.ulesson.R
 import com.efedaniel.ulesson.base.BaseFragment
 import com.efedaniel.ulesson.databinding.FragmentMeBinding
+import com.efedaniel.ulesson.extensions.invalidateElevation
 import com.efedaniel.ulesson.extensions.observeNonNull
+import com.efedaniel.ulesson.extensions.onScrollChanged
 import javax.inject.Inject
 
 class MeFragment : BaseFragment() {
@@ -41,6 +43,8 @@ class MeFragment : BaseFragment() {
         binding.lessonRecyclerView.adapter = MyLessonsAdapter()
 
         viewModel.subjectList.observeNonNull(viewLifecycleOwner, ::setupSpinner)
+
+        binding.scrollView.onScrollChanged { binding.toolbarLayout.invalidateElevation(it) }
     }
 
     private fun setupSpinner(subjects: List<String>) {

@@ -13,51 +13,54 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/grey">
+
+        <LinearLayout
+            android:id="@+id/toolbarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="@color/grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:padding="16dp"
+                android:src="@drawable/ic_back_button" />
+
+            <TextView
+                android:id="@+id/subjectNameTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:fontFamily="@font/muli_semibold"
+                android:maxLines="1"
+                android:text="@string/live_lessons"
+                android:textColor="@color/text_color"
+                android:textSize="24sp" />
+
+        </LinearLayout>
 
         <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="74dp"
             android:fillViewport="true">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/rootView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/grey">
-
-                <LinearLayout
-                    android:id="@+id/toolbarLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="74dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <ImageView
-                        android:id="@+id/back_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:padding="16dp"
-                        android:src="@drawable/ic_back_button" />
-
-                    <TextView
-                        android:id="@+id/subjectNameTextView"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="2dp"
-                        android:layout_weight="1"
-                        android:ellipsize="end"
-                        android:fontFamily="@font/muli_semibold"
-                        android:maxLines="1"
-                        android:text="@string/live_lessons"
-                        android:textColor="@color/text_color"
-                        android:textSize="24sp" />
-
-                </LinearLayout>
+                android:layout_height="match_parent" >
 
                 <com.efedaniel.ulesson.common.customviews.AutoScrollViewPager
                     android:id="@+id/carousel"
@@ -67,7 +70,7 @@
                     android:clipToPadding="false"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/toolbarLayout"
+                    app:layout_constraintTop_toTopOf="parent"
                     tools:background="@android:color/holo_orange_light"/>
 
                 <com.tbuonomo.viewpagerdotsindicator.DotsIndicator

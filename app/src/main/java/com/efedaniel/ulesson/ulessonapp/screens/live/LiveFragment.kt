@@ -12,7 +12,9 @@ import androidx.navigation.fragment.findNavController
 import com.efedaniel.ulesson.R
 import com.efedaniel.ulesson.base.BaseFragment
 import com.efedaniel.ulesson.databinding.FragmentLiveBinding
+import com.efedaniel.ulesson.extensions.invalidateElevation
 import com.efedaniel.ulesson.extensions.observeNonNull
+import com.efedaniel.ulesson.extensions.onScrollChanged
 import com.efedaniel.ulesson.ulessonapp.models.general.Lesson
 import com.efedaniel.ulesson.ulessonapp.screens.live.pager.PromotedPagerAdapter
 import javax.inject.Inject
@@ -49,6 +51,8 @@ class LiveFragment : BaseFragment() {
 
         viewModel.promotedLessons.observeNonNull(viewLifecycleOwner, ::setupViewPager)
         viewModel.subjectList.observeNonNull(viewLifecycleOwner, ::setupSpinner)
+
+        binding.scrollView.onScrollChanged { binding.toolbarLayout.invalidateElevation(it) }
     }
 
     private fun setupSpinner(subjects: List<String>) {

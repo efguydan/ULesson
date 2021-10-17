@@ -1,134 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ulessonapp.screens.me.MeFragment">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.efedaniel.ulesson.ulessonapp.screens.me.MeViewModel" />
     </data>
 
-    <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
-        tools:context=".ulessonapp.screens.me.MeFragment">
+        android:background="@color/grey">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/rootView"
+        <LinearLayout
+            android:id="@+id/toolbarLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/grey">
+            android:layout_height="74dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="@color/grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
-                android:id="@+id/toolbarLayout"
-                android:layout_width="match_parent"
-                android:layout_height="74dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <ImageView
-                    android:id="@+id/back_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:padding="16dp"
-                    android:src="@drawable/ic_back_button" />
-
-                <TextView
-                    android:id="@+id/subjectNameTextView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="2dp"
-                    android:layout_weight="1"
-                    android:ellipsize="end"
-                    android:fontFamily="@font/muli_semibold"
-                    android:maxLines="1"
-                    android:text="@string/my_lessons"
-                    android:textColor="@color/text_color"
-                    android:textSize="24sp" />
-
-            </LinearLayout>
-
-            <Spinner
-                android:id="@+id/subjectSpinner"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:background="@null"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/toolbarLayout" />
-
-            <com.efedaniel.ulesson.common.customviews.EmptyView
-                android:id="@+id/emptyView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginTop="24dp"
-                app:emptyDescription="@string/empty_me_lesson_description"
-                app:emptyImage="@drawable/ic_me_lesson_empty"
-                app:emptyTitle="@string/empty_me_lessons_title"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/subjectSpinner"
-                app:layout_constraintVertical_bias="0.0"
-                visible="@{viewModel.myLessons.isEmpty}"
-                tools:visibility="gone" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/lessonRecyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:focusable="false"
-                android:nestedScrollingEnabled="false"
-                android:orientation="vertical"
-                android:overScrollMode="never"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/subjectSpinner"
-                app:layout_constraintVertical_bias="0.0"
-                myLessonList="@{viewModel.myLessons}"
-                tools:itemCount="3"
-                tools:layout_editor_absoluteX="20dp"
-                tools:listitem="@layout/item_me_lesson" />
-
-            <androidx.constraintlayout.widget.Barrier
-                android:id="@+id/barrier"
+            <ImageView
+                android:id="@+id/back_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:barrierDirection="bottom"
-                app:constraint_referenced_ids="lessonRecyclerView,emptyView" />
+                android:layout_marginStart="4dp"
+                android:padding="16dp"
+                android:src="@drawable/ic_back_button" />
 
-            <android.widget.Button
-                android:id="@+id/addLessonButton"
+            <TextView
+                android:id="@+id/subjectNameTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="18dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="18dp"
-                android:layout_marginBottom="24dp"
-                android:background="@drawable/ic_button_bg"
-                android:text="@string/add_live_lessons"
-                android:textColor="@android:color/white"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/barrier"
-                app:layout_constraintVertical_bias="0.0" />
+                android:layout_marginStart="2dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:fontFamily="@font/muli_semibold"
+                android:maxLines="1"
+                android:text="@string/my_lessons"
+                android:textColor="@color/text_color"
+                android:textSize="24sp" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
-    </androidx.core.widget.NestedScrollView>
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:layout_marginTop="74dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/rootView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Spinner
+                    android:id="@+id/subjectSpinner"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@null"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.efedaniel.ulesson.common.customviews.EmptyView
+                    android:id="@+id/emptyView"
+                    visible="@{viewModel.myLessons.isEmpty}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="20dp"
+                    app:emptyDescription="@string/empty_me_lesson_description"
+                    app:emptyImage="@drawable/ic_me_lesson_empty"
+                    app:emptyTitle="@string/empty_me_lessons_title"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/subjectSpinner"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:visibility="gone" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/lessonRecyclerView"
+                    myLessonList="@{viewModel.myLessons}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:focusable="false"
+                    android:nestedScrollingEnabled="false"
+                    android:orientation="vertical"
+                    android:overScrollMode="never"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/subjectSpinner"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:itemCount="3"
+                    tools:layout_editor_absoluteX="20dp"
+                    tools:listitem="@layout/item_me_lesson" />
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/barrier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="bottom"
+                    app:constraint_referenced_ids="lessonRecyclerView,emptyView" />
+
+                <android.widget.Button
+                    android:id="@+id/addLessonButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="18dp"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/ic_button_bg"
+                    android:text="@string/add_live_lessons"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/barrier"
+                    app:layout_constraintVertical_bias="0.0" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </FrameLayout>
 
 </layout>
