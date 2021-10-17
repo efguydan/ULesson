@@ -87,9 +87,6 @@ class LiveFragment : BaseFragment() {
     ) {
         Snackbar
             .make(binding.coordinatorLayout, message, Snackbar.LENGTH_LONG)
-            .apply {
-                view.setBackgroundColor(ContextCompat.getColor(context, R.color.text_color))
-            }
             .show()
     }
 
