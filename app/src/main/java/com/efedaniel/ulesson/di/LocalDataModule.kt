@@ -18,7 +18,8 @@ class LocalDataModule {
 
     @Provides
     @Singleton
-    fun providesPrefsUtils(prefs: SharedPreferences, gson: Gson): PrefsUtils = PrefsUtils(prefs, gson)
+    fun providesPrefsUtils(prefs: SharedPreferences, gson: Gson): PrefsUtils =
+        PrefsUtils(prefs, gson)
 
     @Provides
     @Singleton

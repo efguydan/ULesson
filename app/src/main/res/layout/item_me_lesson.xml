@@ -3,6 +3,7 @@
 <layout>
 
     <data>
+
         <variable
             name="lesson"
             type="com.efedaniel.ulesson.ulessonapp.models.general.Lesson" />

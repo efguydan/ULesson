@@ -3,13 +3,13 @@
 <layout>
 
     <data>
+
         <variable
             name="lesson"
             type="com.efedaniel.ulesson.ulessonapp.models.general.Lesson" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/rootView"
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/rootView"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -32,7 +32,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             coilImage="@{lesson.imageLink}"
-            tools:src="@android:color/holo_blue_light"/>
+            tools:src="@android:color/holo_blue_light" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -54,7 +54,7 @@
             lessonStatus="@{lesson.status}"
             tools:backgroundTint="@color/red"
             tools:drawableStart="@drawable/ic_bytesize_bell"
-            tools:text="Live"/>
+            tools:text="Live" />
 
         <TextView
             android:id="@+id/subjectNameTextView"
@@ -80,8 +80,7 @@
             app:layout_constraintStart_toEndOf="@id/subjectImageView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/subjectNameTextView"
-            tools:text="Materials - Metals &amp; Non Metals"
-            />
+            tools:text="Materials - Metals &amp; Non Metals" />
 
         <TextView
             android:id="@+id/timeTextView"
@@ -95,8 +94,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/topicNameTextView"
             startTime="@{lesson.startTime}"
-            tools:text="Started at 1:30 PM"
-            />
+            tools:text="Started at 1:30 PM" />
 
         <TextView
             android:id="@+id/tutorNameTextView"

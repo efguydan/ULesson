@@ -48,7 +48,10 @@ android {
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
 }
@@ -79,9 +82,6 @@ dependencies {
     implementation(Config.Libs.Network.gsonConverter)
     implementation(Config.Libs.Network.retrofitMock)
     implementation(Config.Libs.Network.loggingInterceptor)
-
-    implementation(Config.Libs.ExoPlayer.core)
-    implementation(Config.Libs.ExoPlayer.ui)
 
     implementation(Config.Libs.Room.runtime)
     implementation(Config.Libs.Room.extensions)

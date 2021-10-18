@@ -6,6 +6,7 @@
     tools:context=".ulessonapp.screens.live.LiveFragment">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.efedaniel.ulesson.ulessonapp.screens.live.LiveViewModel" />
@@ -61,7 +62,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/rootView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <com.efedaniel.ulesson.common.customviews.AutoScrollViewPager
                     android:id="@+id/carousel"
@@ -72,7 +73,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:background="@android:color/holo_orange_light"/>
+                    tools:background="@android:color/holo_orange_light" />
 
                 <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
                     android:id="@+id/dotsIndicator"
@@ -132,7 +133,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/lessonRecyclerView"
                     app:layout_constraintVertical_bias="0.0"
-                    visible="@{viewModel.liveLessons.isEmpty}"/>
+                    visible="@{viewModel.liveLessons.isEmpty}" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -39,10 +39,9 @@ object Config {
         const val navigation = "2.3.2"
         const val recyclerView = "1.1.0"
         const val coil = "1.1.1"
-        const val exoPlayer = "2.12.0"
         const val room = "2.2.6"
-        const val mockito = "2.2.0"
-        const val mockitoInline = "2.13.0"
+        const val mockito = "4.0.0"
+        const val mockitoInline = "4.0.0"
         const val testingCore = "2.1.0"
         const val spotless = "5.7.0"
     }
@@ -50,7 +49,8 @@ object Config {
     object Plugins {
         const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
         const val gradle = "com.android.tools.build:gradle:${Versions.gradle}"
-        const val safeArgs = "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
+        const val safeArgs =
+            "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
         const val spotless = "com.diffplug.spotless:spotless-plugin-gradle:${Versions.spotless}"
     }
 
@@ -58,17 +58,22 @@ object Config {
         object Core {
             const val kotlinStd = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}"
             const val material = "com.google.android.material:material:${Versions.material}"
-            const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
-            const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
+            const val coroutinesCore =
+                "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
+            const val coroutinesAndroid =
+                "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
         }
 
         object AndroidX {
             const val coreKtx = "androidx.core:core-ktx:${Versions.androidXCore}"
             const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
-            const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+            const val constraintLayout =
+                "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
             const val lifeCycleExt = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}"
-            const val lifeCycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
-            const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
+            const val lifeCycleViewModel =
+                "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
+            const val navigationFragment =
+                "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
             const val navigationUI = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
             const val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerView}"
             const val legacySupport = "androidx.legacy:legacy-support-v4:${Versions.legacySupport}"
@@ -84,12 +89,8 @@ object Config {
             const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
             const val gsonConverter = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
             const val retrofitMock = "com.squareup.retrofit2:retrofit-mock:${Versions.retrofit}"
-            const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttp}"
-        }
-
-        object ExoPlayer {
-            const val core = "com.google.android.exoplayer:exoplayer-core:${Versions.exoPlayer}"
-            const val ui = "com.google.android.exoplayer:exoplayer-ui:${Versions.exoPlayer}"
+            const val loggingInterceptor =
+                "com.squareup.okhttp3:logging-interceptor:${Versions.okHttp}"
         }
 
         object Room {
@@ -106,12 +107,13 @@ object Config {
 
         object Test {
             const val jUnit = "junit:junit:${Versions.jUnit}"
-            const val mockitoKt = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.mockito}"
+            const val mockitoKt = "org.mockito.kotlin:mockito-kotlin:${Versions.mockito}"
             const val mockitoInline = "org.mockito:mockito-inline:${Versions.mockitoInline}"
             const val androidJUnit = "androidx.test.ext:junit:${Versions.androidJUnit}"
             const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
             const val testingCore = "androidx.arch.core:core-testing:${Versions.testingCore}"
-            const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
+            const val coroutines =
+                "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
         }
 
     }

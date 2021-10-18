@@ -32,7 +32,10 @@ class ULessonRepository @Inject constructor(
             e.printStackTrace()
             if (e is IOException) {
                 //  Network Error
-                Result.Error(GENERIC_ERROR_CODE, "No Internet Connection. Displaying Cached Lessons")
+                Result.Error(
+                    GENERIC_ERROR_CODE,
+                    "No Internet Connection. Displaying Cached Lessons"
+                )
             } else {
                 Result.Error(GENERIC_ERROR_CODE, GENERIC_ERROR_MESSAGE)
             }

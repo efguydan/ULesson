@@ -19,8 +19,10 @@ class EmptyView @JvmOverloads constructor(
         View.inflate(context, R.layout.empty_view, this)
 
         context.withStyledAttributes(attrs, R.styleable.EmptyView) {
-            findViewById<TextView>(R.id.emptyTextTitle).text = getString(R.styleable.EmptyView_emptyTitle)
-            findViewById<TextView>(R.id.emptyTextDescription).text = getString(R.styleable.EmptyView_emptyDescription)
+            findViewById<TextView>(R.id.emptyTextTitle).text =
+                getString(R.styleable.EmptyView_emptyTitle)
+            findViewById<TextView>(R.id.emptyTextDescription).text =
+                getString(R.styleable.EmptyView_emptyDescription)
             findViewById<ImageView>(R.id.emptyViewImage).setImageDrawable(getDrawable(R.styleable.EmptyView_emptyImage))
         }
     }

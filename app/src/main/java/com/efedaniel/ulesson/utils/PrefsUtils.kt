@@ -7,7 +7,10 @@ import java.lang.reflect.Type
 import java.util.ArrayList
 import javax.inject.Inject
 
-class PrefsUtils @Inject constructor(private val sharedPref: SharedPreferences, private val gson: Gson) {
+class PrefsUtils @Inject constructor(
+    private val sharedPref: SharedPreferences,
+    private val gson: Gson
+) {
 
     fun putString(key: String, value: String?) {
         sharedPref.edit {
