@@ -20,10 +20,8 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.mockito.Mock
-import org.mockito.Mockito
 import org.mockito.Mockito.isA
 import org.mockito.MockitoAnnotations
-import org.mockito.kotlin.isA
 import org.mockito.kotlin.mock
 import org.mockito.kotlin.times
 import org.mockito.kotlin.verify
@@ -49,7 +47,7 @@ class LiveViewModelTest {
 
     @Before
     fun setUp() {
-        MockitoAnnotations.initMocks(this)
+        MockitoAnnotations.openMocks(this)
         Dispatchers.setMain(testDispatcher)
     }
 
@@ -150,5 +148,4 @@ class LiveViewModelTest {
         Dispatchers.resetMain()
         testDispatcher.cleanupTestCoroutines()
     }
-
 }

@@ -19,7 +19,6 @@ data class Lesson(
     companion object
 
     fun getTutorFullName() = "$tutorFirstName $tutorLastName"
-
 }
 
 val Lesson.Companion.EMPTY: Lesson

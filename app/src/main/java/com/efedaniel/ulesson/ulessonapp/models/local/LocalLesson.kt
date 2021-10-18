@@ -24,7 +24,9 @@ data class LocalLesson(
     val topicName: String,
     @ColumnInfo(name = "start_time")
     val startTime: String
-)
+) {
+    companion object
+}
 
 fun LocalLesson.toLessonModel(): Lesson = Lesson(
     id = id,
