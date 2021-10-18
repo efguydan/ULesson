@@ -31,7 +31,7 @@ class LiveViewModel @Inject constructor(
         getLiveAndPromotedLessons()
     }
 
-    fun getLiveAndPromotedLessons() {
+    private fun getLiveAndPromotedLessons() {
         _loadingStatus.setValue(LoadingStatus.Loading())
 
         viewModelScope.launch {
