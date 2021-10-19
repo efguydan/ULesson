@@ -1,6 +1,6 @@
 # ULesson
 [![Android CI](https://github.com/efguydan/ULesson/actions/workflows/android.yml/badge.svg)](https://github.com/efguydan/ULesson/actions/workflows/android.yml)
-[![Download Sample](https://img.shields.io/badge/Download-v1.0.0-blue.svg)](https://github.com/efguydan/iStudy/raw/master/showcase/ULesson-1.0.0.apk)
+[![Download Sample](https://img.shields.io/badge/Download-v1.0.0-blue.svg)](https://github.com/efguydan/ULesson/blob/master/showcase/ULesson-1.0.0.apk)
 
 ULesson is an app to view a list of live lessons
 
