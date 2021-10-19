@@ -99,6 +99,7 @@ dependencies {
 
     androidTestImplementation(Config.Libs.Test.androidJUnit)
     androidTestImplementation(Config.Libs.Test.espresso)
+    androidTestImplementation(Config.Libs.Test.testRules)
 }
 
 apply(from = "../spotless.gradle")

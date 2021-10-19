@@ -57,14 +57,19 @@ fun TextView.setStartTime(time: String?) {
 fun TextView.setSubjectName(name: String?) {
     name?.let {
         text = it
-        setTextColor(ContextCompat.getColor(context, when(it.toLowerCase()) {
-            Constants.Data.SUBJECTS[1].toLowerCase() -> R.color.mathematics
-            Constants.Data.SUBJECTS[2].toLowerCase() -> R.color.english
-            Constants.Data.SUBJECTS[3].toLowerCase() -> R.color.chemistry
-            Constants.Data.SUBJECTS[4].toLowerCase() -> R.color.biology
-            Constants.Data.SUBJECTS[5].toLowerCase() -> R.color.physics
-            else -> R.color.text_color
-        }))
+        setTextColor(
+            ContextCompat.getColor(
+                context,
+                when (it.toLowerCase()) {
+                    Constants.Data.SUBJECTS[1].toLowerCase() -> R.color.mathematics
+                    Constants.Data.SUBJECTS[2].toLowerCase() -> R.color.english
+                    Constants.Data.SUBJECTS[3].toLowerCase() -> R.color.chemistry
+                    Constants.Data.SUBJECTS[4].toLowerCase() -> R.color.biology
+                    Constants.Data.SUBJECTS[5].toLowerCase() -> R.color.physics
+                    else -> R.color.text_color
+                }
+            )
+        )
     }
 }
 

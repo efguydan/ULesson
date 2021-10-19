@@ -28,7 +28,7 @@ object Config {
         const val constraintLayout = "2.0.4"
         const val jUnit = "4.+"
         const val androidJUnit = "1.1.2"
-        const val espresso = "3.3.0"
+        const val espresso = "3.5.0-alpha03"
         const val dagger = "2.31.1"
         const val glassFish = "10.0-b28"
         const val timber = "4.7.1"
@@ -44,6 +44,7 @@ object Config {
         const val mockitoInline = "4.0.0"
         const val testingCore = "2.1.0"
         const val spotless = "5.7.0"
+        const val testRules = "1.4.1-alpha03"
     }
 
     object Plugins {
@@ -114,6 +115,7 @@ object Config {
             const val testingCore = "androidx.arch.core:core-testing:${Versions.testingCore}"
             const val coroutines =
                 "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
+            const val testRules = "androidx.test:rules:${Versions.testRules}"
         }
 
     }
