@@ -61,10 +61,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:text="@{lesson.subjectName}"
             app:layout_constraintStart_toEndOf="@id/subjectImageView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            subjectName="@{lesson.subjectName}"
             tools:text="Physics" />
 
         <TextView

@@ -64,6 +64,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="200dp"
+                    android:src="@drawable/ic_me_bg"/>
+
                 <Spinner
                     android:id="@+id/subjectSpinner"
                     android:layout_width="170dp"

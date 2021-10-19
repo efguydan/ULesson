@@ -13,4 +13,11 @@
     <color name="purple">#506AAC</color>
     <color name="yellow">#F2984D</color>
     <color name="light_black">#606572</color>
+
+<!--    Subject Colors-->
+    <color name="physics">#7B7FDA</color>
+    <color name="biology">#68BC98</color>
+    <color name="chemistry">#F9AD6D</color>
+    <color name="mathematics">#EA7052</color>
+    <color name="english">#7B7FDA</color>
 </resources>
